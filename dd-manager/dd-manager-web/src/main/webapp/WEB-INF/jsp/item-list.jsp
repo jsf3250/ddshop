@@ -65,7 +65,7 @@
     }
 
     function add(){
-
+        ddshop.addTabs('新增商品','item-add');
     }
     function edit(){
 
@@ -132,7 +132,7 @@
             iconCls: 'icon-add',
             text: '新增',
             handler: function () {
-                alert('编辑按钮')
+                ddshop.addTabs('新增商品','itrm-add');
             }
         }, {
             iconCls: 'icon-remove',

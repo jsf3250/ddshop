@@ -22,7 +22,7 @@
       <module name="dd-manager-pojo" target="1.8" />
       <module name="dd-manager-service" target="1.8" />
       <module name="dd-manager-web" target="1.8" />
-      <module name="dd-parent" target="1.8" />
+      <module name="dd-parent" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
