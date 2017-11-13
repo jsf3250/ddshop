@@ -8,6 +8,8 @@ import com.dhc.ddshop.pojo.po.TbItem;
 import com.dhc.ddshop.pojo.vo.TbItemCustom;
 import com.dhc.ddshop.pojo.vo.TbItemQuery;
 import com.dhc.ddshop.service.ItemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,8 @@ import java.util.List;
 @Controller
 @Scope("prototype")
 public class ItemAction {
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private ItemService itemService;
 
@@ -71,4 +75,19 @@ public class ItemAction {
         System.out.println("i="+i);
         return i;
     }
+
+    @ResponseBody
+    @RequestMapping("/item")
+    public int additems(TbItem tbItem,String desc) {
+        int i = 0;
+        try {
+            i = itemService.saveItem(tbItem,desc);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            e.printStackTrace();
+        }
+
+        return i;
+    }
+
 }

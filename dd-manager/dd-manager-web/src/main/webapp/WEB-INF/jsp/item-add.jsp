@@ -79,11 +79,15 @@
     function submitForm() {
         $('#itemAddForm').form('submit',{
             url:'item',
-            onsubmit:function () {
+            onSubmit:function () {
                 $('#price').val($('#priceView').val() * 100);
                 return $(this).form('validate');
             },
-            success:function () {
+            success:function (date) {
+                if (date>0){
+                    $.messager.alert('温馨提示','恭喜！添加商品成功！');
+                    ddshop.addTabs('查询商品', 'item-list');
+                }
                 console.log('success')
             }
         });

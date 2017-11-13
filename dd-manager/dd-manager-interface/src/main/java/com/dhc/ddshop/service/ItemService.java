@@ -20,4 +20,6 @@ public interface ItemService {
     int updateBatch1(List<Long> ids);
     int updateBatch2(List<Long> ids);
     int updateBatch3(List<Long> ids);
+
+    int saveItem(TbItem tbItem, String desc);
 }
