@@ -46,9 +46,9 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="2" style="margin-left: 50px">
                     <!-- 加载编辑器的容器 -->
-                    <script id="container" name="content" type="text/plain">商品描述</script>
+                    <script id="container" name="desc" type="text/plain">商品描述</script>
                 </td>
             </tr>
 
@@ -76,6 +76,24 @@
 
 <script>
 
+    function submitForm() {
+        $('#itemAddForm').form('submit',{
+            url:'item',
+            onsubmit:function () {
+                $('#price').val($('#priceView').val() * 100);
+                return $(this).form('validate');
+            },
+            success:function () {
+                console.log('success')
+            }
+        });
+    }
+
+
+    var ue = UE.getEditor('container',{
+        initialFrameWidth: '50%',
+        initialFrameHeight: '200'
+    });
     $('#cid').combotree({
         url: 'itemCats?parentId=0',
         required: true,
